@@ -7,5 +7,9 @@ $dao = new pessoaDAO();
 ///$pessoas = $dao->delete(5);
 
 
-$pessoas = $dao->update(2, ['nome' => 'João', 'cpf' => '123.456.789-00', 'email' => 'joao@example.com', 'idade' => 30]);
-?>
+$pessoas = new pessoa("Cristian", "123.456.789-00", "cristian@example.com", 18, 4);
+
+$p = $dao->update($pessoas);
+
+echo "Atualizado: " . $p;
+?> 

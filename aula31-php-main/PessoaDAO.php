@@ -61,10 +61,10 @@ class PessoaDAO {
     $stmt->execute([$id]);
   }
 
-  public function update($id, $dados) {
+  public function update(Pessoa $pessoa) {
     $sql = "UPDATE pessoas SET nome = ?, cpf = ?, email = ?, idade = ? WHERE id = ?";
     $stmt = $this->conn->prepare($sql);
-    $stmt->execute([$dados['nome'], $dados['cpf'], $dados['email'], $dados['idade'], $id]);
+    $stmt->execute([$pessoa->getNome(), $pessoa->getCpf(), $pessoa->getEmail(), $pessoa->getIdade(), $pessoa->getId()]);
   }
 
 }
